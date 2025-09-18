@@ -309,7 +309,7 @@ climdexInput.raw <- function(tmax=NULL, tmin=NULL, prec=NULL, tmax.dates=NULL, t
     monthly = lapply(filled.list, get.na.mask, date.factors$monthly, max.missing.days["monthly"]),
     seasonal = lapply(filled.list, get.na.mask, date.factors$seasonal, max.missing.days["seasonal"]))
   namasks$annual <- lapply(names(namasks$annual), function(v) {
-    d <- namasks$annual[[v]] * as.numeric(tapply(namasks$monthly[[v]], rep(seq_along(namasks$annual[[v]]), each = 8), prod))
+    d <- namasks$annual[[v]] * as.numeric(tapply(namasks$monthly[[v]], rep(seq_along(namasks$annual[[v]]), each = 12), prod))
     dimnames(d) <- dim(d) <- NULL
     d
   })
